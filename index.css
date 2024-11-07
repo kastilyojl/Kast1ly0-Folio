@@ -120,8 +120,21 @@ nav .__social-media li a path, nav .__social-media li a circle {
 .__homepage .__left .dot2 {
   animation: moveDot2 10s linear infinite;
 }
+@media screen and (max-width: 392px) {
+  .__homepage .__left h1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .__homepage .__left #wave {
+    display: none;
+  }
+  .__homepage .__left p {
+    text-align: center;
+  }
+}
 .__homepage .__left .name {
   border-right: 0.15em solid #ffa500;
+  text-align: center;
   color: #ffa500;
   animation: blink-caret 0.75s step-end infinite;
 }
@@ -369,6 +382,15 @@ nav .__social-media li a path, nav .__social-media li a circle {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 576px) {
+  .__about .__skill .__line {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .__about .__skill .__line span {
+    width: 100%;
+  }
+}
 .__about .__skill .__line h4 {
   margin-right: 10px;
 }
@@ -399,9 +421,14 @@ nav .__social-media li a path, nav .__social-media li a circle {
 }
 .__about .__skill .__skill-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   column-gap: 20px;
   row-gap: 20px;
+}
+@media screen and (min-width: 320px) {
+  .__about .__skill .__skill-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media screen and (min-width: 768px) {
   .__about .__skill .__skill-container {
@@ -417,6 +444,15 @@ nav .__social-media li a path, nav .__social-media li a circle {
   padding: 10px 20px;
   border-radius: 4px;
   border: 1px solid #ffa500;
+}
+@media screen and (max-width: 576px) {
+  .__about .__skill .__skill-container .__skill-tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 .__about .__skill .__skill-container .__skill-tech img {
   padding: 0 10px;
