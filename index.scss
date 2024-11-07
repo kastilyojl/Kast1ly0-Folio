@@ -1,0 +1,641 @@
+ *, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+    
+    $text-color: #FAFAFA;
+    $accent: #ffa500;
+    $bg1: #151515;
+    $bg2: #17191b;
+
+    :root {
+      --text-color: #{$text-color};
+      --accent: #{$accent};
+      --bg1: #{$bg1}; 
+      --bg2: #{$bg2};
+    }
+
+.__main {
+    color: $text-color;
+}
+
+.page {
+  display: none;
+  animation: animationIn 3s;
+  
+  @keyframes animationIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.page.active {
+  display: block;
+}
+
+@media screen and (max-width: 992px) {
+  .__main {
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .__left {
+    height: 100vh;
+  }
+}
+
+nav {
+    border-bottom: 1px solid $text-color;
+    background: $bg1;
+
+    svg {
+        fill: white;
+    }
+
+    .__sidebar {
+        background: #1515158e ;
+        backdrop-filter: blur(50px);
+    }
+
+    .__logo {
+      color: $accent;
+    }
+
+    .offcanvas-title {
+      color: $accent;
+    }
+
+    .__social-media li a{
+      border: 1px solid $text-color;
+      border-radius: 4px;
+      padding: 0 2px;
+    
+      path, circle {
+        fill: $accent;
+      }
+    }
+
+}
+
+.__homepage {
+
+  .__left {
+
+    // DOT ANIMATION
+    // From Uiverse.io by Spacious74 
+
+    .dot1, .dot2 {
+      width: 5px;
+      aspect-ratio: 1;
+      position: absolute;
+      background-color: $accent;
+      box-shadow: 0 0 10px $accent;
+      border-radius: 100px;
+      z-index: 2;
+      animation: moveDot1 10s linear infinite;
+
+      @keyframes moveDot1 {
+        0%,
+        100% {
+          top: 0;
+          right: 0;
+        }
+        25% {
+          top: 0;
+          right: 100%;
+        }
+        50% {
+          top: 100%;
+          right: 100%;
+        }
+        75% {
+          top: 100%;
+          right: 0;
+        }
+      }
+    
+      @keyframes moveDot2 {
+        0%,
+        100% {
+          bottom: 0;
+          left: 0;
+        }
+        25% {
+          bottom: 0;
+          left: 100%;
+        }
+        50% {
+          bottom: 100%;
+          left: 100%;
+        }
+        75% {
+          bottom: 100%;
+          left: 0;
+        }
+      }
+      
+  
+    }
+  
+    .dot2 {
+      animation: moveDot2 10s linear infinite;
+    }
+
+    .name {
+      border-right: .15em solid $accent;
+      color: $accent;
+      animation: blink-caret .75s step-end infinite;
+  
+      @keyframes blink-caret {
+        from, to {
+            border-color: transparent; 
+        }
+        50% {
+            border-color: orange; 
+        }
+      }
+    }
+
+    #wave {
+      display: inline-block; 
+      animation: wave 1.5s infinite;
+
+      @keyframes wave {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0); 
+        }
+        
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    
+      @keyframes move {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .__button-container {
+
+      .download-button {
+        /* BUTTON*/
+        /* Resume */
+        /* From Uiverse.io by byag-github */ 
+        position: relative;
+        border-width: 0;
+        color: $accent;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 4px;
+        z-index: 1;
+        transform: translateY(5px);
+        margin-right: 4px;
+  
+        .docs {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          min-height: 40px;
+          padding: 0 10px;
+          border-radius: 4px;
+          z-index: 1;
+          background-color: $bg1;
+          border: solid 1px $text-color;
+          transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+  
+        .download {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          max-width: 90%;
+          margin: 0 auto;
+          z-index: -1;
+          border-radius: 4px;
+          transform: translateY(0%);
+          background-color: $bg2;
+          border: solid 1px $text-color;
+          transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+
+          svg {
+            color: $accent;
+          }
+  
+          svg polyline,
+          svg line {
+            animation: docs 1s infinite;
+          }
+          
+          @keyframes docs {
+            0% {
+              transform: translateY(0%);
+            }
+          
+            50% {
+              transform: translateY(-15%);
+            }
+          
+            100% {
+              transform: translateY(0%);
+            }
+          }
+  
+          .download-button:hover .download {
+            transform: translateY(100%);
+          }
+  
+        }
+  
+      }
+      
+      .download-button:hover .download {
+        transform: translateY(100%);
+      }
+
+      // Contact Button
+      // From Uiverse.io by mi-series
+      
+      .button {
+        border: none;
+        transform: rotate(5deg);
+        transform-origin: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        min-height: 40px;
+        padding-right: 10px;
+        border-radius: 4px;
+        z-index: 1;
+        background-color:$bg1;
+        border: solid 1px $text-color;
+
+        #__contact-link {
+          color: $accent;
+          text-decoration: none;
+
+          svg {
+            fill: $accent;
+          }
+        
+        }
+      }
+
+      .button:active {
+        transform: translateY(5px);
+        padding-bottom: 0px;
+        outline: 0;
+      }
+
+    }
+    
+
+  }
+
+  .__right {
+    
+    // IMAGE BLOB
+
+    .box {
+      height: 400px;
+      width: 350px;
+      background: $accent;
+      animation: animate 5s ease-in-out infinite;
+      transition: all 15s ease-in-out;
+      
+      @keyframes animate {
+        0% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        20% {
+            border-radius: 50% 50% 40% 60% / 60% 40% 60% 50%;
+        }
+        40% {
+            border-radius: 40% 60% 50% 50% / 70% 30% 50% 50%;
+        }
+        60% {
+            border-radius: 70% 30% 50% 50% / 40% 60% 30% 70%;
+        }
+        80% {
+            border-radius: 60% 40% 50% 70% / 70% 60% 50% 80%;
+        }
+        100% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+      }
+
+    }
+  }
+
+  
+}  
+
+.__project {
+
+  .__cards {
+    background: transparent;
+    border: 1px solid $accent;
+    color:$text-color;
+    // box-shadow: 1px 1px 6px 1px var(--accent);
+  }
+
+  .__body-text {
+    border-bottom: 1px solid $accent;
+    
+    .card-title {
+      border-bottom: 1px solid $accent;
+      padding-bottom: 10px;
+    }
+
+    .__technology svg {
+      fill: #f5deb3
+    }
+
+  }
+
+  .__link li {
+    border: 1px solid $text-color;
+
+    svg{
+      fill: $accent;
+    }
+  }
+
+  .dot1, .dot2 {
+    width: 5px;
+    aspect-ratio: 1;
+    position: absolute;
+    background-color: $text-color;
+    box-shadow: 0 0 10px $accent;
+    border-radius: 100px;
+    z-index: 2;
+    animation: moveDot1 10s linear infinite;
+
+    @keyframes moveDot1 {
+      0%,
+      100% {
+        top: 0;
+        right: 0;
+      }
+      25% {
+        top: 0;
+        right: 100%;
+      }
+      50% {
+        top: 100%;
+        right: 100%;
+      }
+      75% {
+        top: 100%;
+        right: 0;
+      }
+    }
+  
+    @keyframes moveDot2 {
+      0%,
+      100% {
+        bottom: 0;
+        left: 0;
+      }
+      25% {
+        bottom: 0;
+        left: 100%;
+      }
+      50% {
+        bottom: 100%;
+        left: 100%;
+      }
+      75% {
+        bottom: 100%;
+        left: 0;
+      }
+    }
+    
+  }
+
+  .dot2 {
+    animation: moveDot2 10s linear infinite;
+  }
+
+}
+
+.__about {
+
+  .__about-me {
+    border-radius: 10px;
+    background: $bg2;
+
+    .__me {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .__profile {
+        height: 200px;
+        width: 200px;
+        background: $accent;
+        border-radius: 100%;
+        border: 1px solid $accent;
+      }
+    }
+
+    .__description {
+
+      .__fullname {
+        color: $accent;
+      }
+
+    }
+
+
+  }
+
+  .__skill {
+
+    .__line {
+      display: flex;
+      align-items: center;
+
+      h4 {
+        margin-right: 10px;
+      }
+
+      span {
+        flex: 1;
+        position: relative;
+
+        .dot3 {
+          width: 5px;
+          aspect-ratio: 1;
+          position: absolute;
+          background-color: $accent;
+          box-shadow: 0 0 10px $text-color;
+          border-radius: 100px;
+          z-index: 2;
+          animation: moveDot3 5s linear infinite;
+
+          @keyframes moveDot3 {
+            0% {
+              left: 0%;
+            }
+            50% {
+              left: 100%;
+            }
+            100% {
+              left: 0%; 
+            }
+          }
+        }
+      }
+
+    }
+
+    .__skill-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+      row-gap: 20px;
+
+      @media screen and (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      @media screen and (min-width: 992px) {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+  
+      .__skill-tech {
+        padding: 10px 20px;
+        border-radius: 4px;
+        border: 1px solid $accent;
+  
+        img {
+          padding: 0 10px;
+          height: 24px;
+        }
+  
+      }
+
+  
+    }
+
+  }
+
+
+
+}
+
+
+.__contact-form {
+  .form {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    // background-color: rgba(128, 128, 128, 0.445);
+    border: 1px solid $accent;
+    padding: 20px;
+    border-radius: 10px;
+    background: #1515158e ;
+    backdrop-filter: blur(50px);
+
+    @media screen and (max-width: 576px) {
+      width: 300px;
+    }
+
+
+    .header {
+
+      .title {
+        color: $accent;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 6px;
+      }
+
+      .__close-button {
+        color: $accent;
+        background: $bg1;
+        border: 1px solid $accent;
+        padding: 4px 10px;
+        border-radius: 6px;
+  
+      }
+
+      .__close-button:hover {
+        background: rgba(255, 255, 255, 0.075);
+        backdrop-filter: blur(50px);
+        cursor: pointer;
+      }
+
+    }
+
+    input {
+      outline: 0;
+      border: 1px solid $accent;
+      padding: 8px 14px;
+      border-radius: 8px;
+      width: 100%;
+      height: 50px;
+      color: $text-color;
+      background: $bg2;
+    }
+
+    
+    textarea {
+      border-radius: 8px;
+      height: 200px;
+      width: 100%;
+      resize: none;
+      outline: 0;
+      padding: 8px 14px;
+      color: $text-color;
+      border: 1px solid $accent;
+      background: $bg2;
+    }
+
+    button {
+      align-self: flex-end;
+      padding: 8px;
+      outline: 0;
+      border: 0;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: $bg2;
+      border: 1px solid $accent;
+      color: $accent;
+      cursor: pointer;
+    }
+
+
+  }
+
+
+}
+
