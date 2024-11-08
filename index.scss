@@ -381,6 +381,26 @@ nav {
       padding-bottom: 10px;
     }
 
+    .card-text {
+      height: 150px;
+      text-align: center;
+      overflow-y: auto;
+    
+    }
+
+    .card-text::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .card-text::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
+  
+    .card-text::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+
     .__technology svg {
       fill: #f5deb3
     }
